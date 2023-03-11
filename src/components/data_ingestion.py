@@ -7,6 +7,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformation
+
 
 @dataclass
 class DataIngestionConfig:
@@ -44,6 +46,14 @@ class DataIngestion:
             )
         
         except Exception as e:
-            logging.info("Error occured--->", str(e))
-            raise CustomException(str(e), sys)
+            logging.info("Error occured")
+            raise CustomException(e, sys)
+
+
+if __name__=="__main__":
+    obj=DataIngestion()
+    train_data,test_data=obj.initiate_data_ingestion("notebook/data/stud.csv")
+
+    data_transformation=DataTransformation()
+    data_transformation.initiate_data_transformation(train_data,test_data)
 
