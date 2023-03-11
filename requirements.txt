@@ -5,4 +5,5 @@ pandas
 catboost
 xgboost
 seaborn
-# -e .
+matplotlib
+-e .
