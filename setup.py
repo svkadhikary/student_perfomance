@@ -17,7 +17,7 @@ def get_requirements(file_path:str) -> List[str]:
 
 setup(
 
-    name = "House Price prediction",
+    name = "Student Performance Prediction",
     version = "0.0.1",
     author = "Souvik Adhikary",
     author_email = "svkadhikary7@gmail.com",
