@@ -1,10 +1,8 @@
 Flask
 scikit-learn
 scipy
-PyYAML
-gunicorn
 pandas
--e .
-six
-dill
-evidently
+catboost
+xgboost
+seaborn
+# -e .
