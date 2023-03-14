@@ -113,7 +113,7 @@ class ModelTrainer:
                 file_path = self.model_trainer_config.trained_model_file_path
             )
 
-            return best_model_score
+            return (best_model_name, best_model_score)
 
         except Exception as e:
             raise CustomException(e, sys)
