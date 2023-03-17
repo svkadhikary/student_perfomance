@@ -97,7 +97,7 @@ class ModelTrainer:
             }
             
             # evaluate which model gives best score
-            model_report:dict = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, hyperparams=hyperparams)
+            model_report, best_model = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, hyperparams=hyperparams)
             
             model_report = {k: v for k, v in sorted(model_report.items(), key=lambda item: item[1], reverse=True)}
 
@@ -107,11 +107,13 @@ class ModelTrainer:
                 raise CustomException("No best model found")
             
             logging.info("Best model found")
+            print("Best model:", best_model)
 
             save_object(
-                obj = models[best_model_name],
+                obj = best_model,
                 file_path = self.model_trainer_config.trained_model_file_path
             )
+            logging.info("Best model saved")
 
             return (best_model_name, best_model_score)
 
